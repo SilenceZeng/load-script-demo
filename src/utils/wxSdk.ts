@@ -13,8 +13,9 @@ export function loadWxScript(): Promise<typeof window.wx> {
         exposeGlobalName: 'wx',
         cleanGlobal: true,
       })
-        .catch(() => {
+        .catch((error) => {
           console.log('error');
+          console.log(error);
           return loadScript('/3rd/jweixin-1.4.0.js?_age=999999', {
             noRepeat: true,
           });
